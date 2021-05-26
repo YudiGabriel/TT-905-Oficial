@@ -1,0 +1,25 @@
+{
+  "name": "TT-905-Oficial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YudiGabriel/TT-905-Oficial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YudiGabriel/TT-905-Oficial/issues"
+  },
+  "homepage": "https://github.com/YudiGabriel/TT-905-Oficial#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
