@@ -1,5 +1,6 @@
  const express = require("express");
  const app = express();
+app.use(express.json());
 
 //Permissões
  var cors = require('cors')
@@ -23,15 +24,15 @@
     "Gabriel Yudi", "Marcelo Miranda"
  ];
 
- app.get('/mensagem', function(req, res){
+ app.get('/mensagens', function(req, res){
      res.send(mensagens);
     }
 );
 
-app.get('/mensagem/:id', function(req, res)
+app.get('/mensagens/:id', function(req, res)
     {
         const id = req.params.id - 1;
-        const mensagem = mensagem[id];
+        const mensagem = mensagens[id];
         
         if(!mensagem){
             res.send('Mensagem não encontrada');
@@ -40,3 +41,11 @@ app.get('/mensagem/:id', function(req, res)
         }
     }
 );
+app.post('/mensagens',
+        function(req, res){
+            console.log(req.body.mensagem);
+            const mensagem = req.body.mensagem ;
+            mensagens.push(mensagem);
+            res.send("criar uma mensagem");
+        }
+    )

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/YudiGabriel/TT-905-Oficial#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },
