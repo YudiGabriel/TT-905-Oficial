@@ -20,11 +20,15 @@ app.use(express.json());
      }
  );
 
- const mensagens = ["Gabriel Yudi", "Marcelo Miranda"];
+ myBooks = [ 
+    {title: "titulo1", author: "C", originalYearOfPublication: 1952},
+    {title: "titulo2", author: "N", originalYearOfPublication: 2004},
+    {title: "titulo3", author: "Al", originalYearOfPublication: 1999},
+    {title: "titulo4", author:"J", originalYearOfPublication: 2017}
+];
 
  app.get('/mensagens', function(req, res){
-    // res.send(mensagens);
-     res.send(mensagens.filter(Boolean));
+     res.send(dado.filter(Boolean));
     }
 );
 
@@ -44,7 +48,7 @@ app.post('/mensagens',
         function(req, res){
             console.log(req.body.mensagem);
             const mensagem = req.body.mensagem ;
-            mensagens.push(mensagem);
+            dado.push(mensagem);
             res.send("criar uma mensagem");
         }
     );
