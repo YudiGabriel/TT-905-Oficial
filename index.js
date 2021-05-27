@@ -20,7 +20,7 @@ app.use(express.json());
      }
  );
 
- const mensagens = ["Gabriel Yudi", "Marcelo Miranda"];
+ const mensagens = ["Viagem", "Turismo"];
 
  app.get('/mensagens', function(req, res){
     // res.send(mensagens);
