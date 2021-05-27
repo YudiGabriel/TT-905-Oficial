@@ -34,7 +34,7 @@ app.use(express.json());
 // };
 
 // let jogos = [LoL, CoD, Genshin];
-jogos = [
+const jogos = [
     {
         title: "LoL", who:"Gabriel"
     },
