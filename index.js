@@ -8,7 +8,7 @@ app.use(express.json());
 
  //Porta que estou ouvindo
 
- app.listen(3000);
+ app.listen(process.env.PORT || 3000);
 
  app.get('/', function (req, res){
         res.send("Hello WorlAafkjsdyd");
