@@ -11,7 +11,7 @@ app.use(express.json());
  app.listen(process.env.PORT || 3000);
 
  app.get('/', function (req, res){
-        res.send("Olá, esta é minha atividade 7");
+        res.send("Hello WorlAafkjsdyd");
      }
  ); 
 
@@ -20,50 +20,50 @@ app.use(express.json());
      }
  );
 
- const carros = [
-    "Fox", "Up"
+ const mensagens = [
+    "Gabriel Yudi", "Marcelo Miranda"
  ];
 
- app.get('/carros', function(req, res){
+ app.get('/mensagens', function(req, res){
     // res.send(mensagens);
-     res.send(carros.filter(Boolean));
+     res.send(mensagens.filter(Boolean));
     }
 );
 
-app.get('/carros/:id', function(req, res)
+app.get('/mensagens/:id', function(req, res)
     {
         const id = req.params.id - 1;
-        const carros = carros[id];
+        const mensagem = mensagens[id];
         
-        if(!carros){
-            res.send('Carro não encontrado');
+        if(!mensagem){
+            res.send('Mensagem não encontrada');
         } else {
-            res.send(carros);
+            res.send(mensagem);
         }
     }
 );
-app.post('/carros',
+app.post('/mensagens',
         function(req, res){
-            console.log(req.body.carros);
-            const carros = req.body.carros ;
-            carros.push(carros);
-            res.send("Carro adicionado");
+            console.log(req.body.mensagem);
+            const mensagem = req.body.mensagem ;
+            mensagens.push(mensagem);
+            res.send("criar uma mensagem");
         }
     );
 
-    app.put('/carros/:id',
+    app.put('/mensagens/:id',
      (req, res) => {
         const id = req.params.id - 1;
-        const carros = req.body.carros;
-        carros[id] = carros;
-        res.send("Carro atualizado com sucesso")  
+        const mensagem = req.body.mensagem;
+        mensagens[id] = mensagem;
+        res.send("Mensagem atualizada com sucesso")  
     }
 );
 
-app.delete('/carros/:id',
+app.delete('/mensagens/:id',
         (req, res) => {
            const id = req.params.id -1;
-           delete carros[id];
-           res.send("Carro removido com sucesso")
+           delete mensagens[id];
+           res.send("Mensagem removida com sucesso")
         }
     );
