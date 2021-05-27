@@ -34,7 +34,7 @@ app.use(express.json());
 // };
 
 // let jogos = [LoL, CoD, Genshin];
-const jogos = [
+const jogo = [
     {
         title: "LoL", who:"Gabriel"
     },
@@ -43,7 +43,9 @@ const jogos = [
     }
 ];
 app.get('/jogos', function(req, res){
-     res.send(jogos);
+    // res.send(jogos);
+     console.log(jogo.title);
+     console.log(jogo.who);
     // res.send(jogos.filter(Boolean));
     }
 );
@@ -69,19 +71,19 @@ app.post('/jogos',
         }
     );
 
-    app.put('/mensagens/:id',
+app.put('/jogos/:id',
      (req, res) => {
         const id = req.params.id - 1;
-        const mensagem = req.body.mensagem;
-        mensagens[id] = mensagem;
+        const jogo = req.body.jogom;
+        jogos[id] = jogo;
         res.send("Mensagem atualizada com sucesso")  
     }
 );
 
-app.delete('/mensagens/:id',
+app.delete('/jogos/:id',
         (req, res) => {
            const id = req.params.id -1;
-           delete mensagens[id];
+           delete jogos[id];
            res.send("Mensagem removida com sucesso")
         }
     );
