@@ -20,7 +20,7 @@ app.use(express.json());
 //      estilo:"MOBA",
 //      joga: ["Gabriel","Marcelo"]
 //  };
-//  let CoD = {
+// let CoD = {
 //     nome: "Call of Duty",
 //     time: "5 pessoas",
 //     estilo:"FPS",
@@ -34,6 +34,7 @@ app.use(express.json());
 // };
 
 // let jogos = [LoL, CoD, Genshin];
+// 
 const jogo = [
     {
         title: "LoL", who:"Gabriel"
@@ -41,49 +42,49 @@ const jogo = [
     {
         title:"Ablion", who:"Marcelo"
     }
-];
+]
+
 app.get('/jogos', function(req, res){
-    // res.send(jogos);
-     console.log(jogo.title);
-     console.log(jogo.who);
+    // res.send(jogo[id].title);
+    console.log(jogo[id].title);
     // res.send(jogos.filter(Boolean));
     }
 );
 
-app.get('/jogos/:id', function(req, res)
-    {
-        const id = req.params.id - 1;
-        const jogo = jogos[id];
+// app.get('/jogos/:id', function(req, res)
+//     {
+//         const id = req.params.id - 1;
+//         const jogos = jogos[id];
         
-        if(!jogo){
-            res.send('Mensagem não encontrada');
-        } else {
-            res.send(jogo);
-        }
-    }
-);
-app.post('/jogos',
-        function(req, res){
-            console.log(req.body.jogo);
-            const jogo = req.body.jogo ;
-            jogos.push(jogo);
-            res.send("criar uma mensagem");
-        }
-    );
+//         if(!jogo){
+//             res.send('Mensagem não encontrada');
+//         } else {
+//             res.send(jogo);
+//         }
+//     }
+// );
+// app.post('/jogos',
+//         function(req, res){
+//             console.log(req.body.jogo);
+//             const jogo = req.body.jogo ;
+//             jogos.push(jogo);
+//             res.send("criar uma mensagem");
+//         }
+//     );
 
-app.put('/jogos/:id',
-     (req, res) => {
-        const id = req.params.id - 1;
-        const jogo = req.body.jogom;
-        jogos[id] = jogo;
-        res.send("Mensagem atualizada com sucesso")  
-    }
-);
+// app.put('/jogos/:id',
+//      (req, res) => {
+//         const id = req.params.id - 1;
+//         const jogo = req.body.jogom;
+//         jogos[id] = jogo;
+//         res.send("Mensagem atualizada com sucesso")  
+//     }
+// );
 
-app.delete('/jogos/:id',
-        (req, res) => {
-           const id = req.params.id -1;
-           delete jogos[id];
-           res.send("Mensagem removida com sucesso")
-        }
-    );
+// app.delete('/jogos/:id',
+//         (req, res) => {
+//            const id = req.params.id -1;
+//            delete jogos[id];
+//            res.send("Mensagem removida com sucesso")
+//         }
+//     );
