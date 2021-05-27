@@ -25,7 +25,8 @@ app.use(express.json());
  ];
 
  app.get('/mensagens', function(req, res){
-     res.send(mensagens);
+    // res.send(mensagens);
+     res.send(mensagens.filter(Boolean));
     }
 );
 
@@ -48,4 +49,21 @@ app.post('/mensagens',
             mensagens.push(mensagem);
             res.send("criar uma mensagem");
         }
-    )
+    );
+
+    app.put('/mensagens/:id',
+     (req, res) => {
+        const id = req.params.id - 1;
+        const mensagem = req.body.mensagem;
+        mensagens[id] = mensagem;
+        res.send("Mensagem atualizada com sucesso")  
+    }
+);
+
+app.delete('/mensagens/:id',
+        (req, res) => {
+           const id = req.params.id -1;
+           delete mensagens[id];
+           res.send("Mensagem removida com sucesso")
+        }
+    );
