@@ -25,15 +25,20 @@ app.use(express.json());
 
  app.get('/dados', function(req, res){
   
-     res.send(dados.filter(Boolean),
-     res.send(ano.filter(Boolean));
+     res.send(dados.filter(Boolean))
     }
+);
+app.get('/dados', function(req, res){
+  
+    res.send(ano.filter(Boolean))
+   }
 );
 
 app.get('/dados/:id', function(req, res)
     {
         const id = req.params.id - 1;
-        const dados = dados[id], const ano =ano[id];
+        const dados = dados[id];
+         const ano =ano[id];
         
         if(!dados){
             res.send('Dado não encontrado');
@@ -60,21 +65,28 @@ app.post('/dados',
         const id = req.params.id - 1;
         const dados = req.body.dados;
         dados[id] = dados;
-        res.send("Dados atualizados com sucesso");
-        const id = req.params.id - 1;
-        const ano = req.body.ano;
-        dados[id] = ano;
-        res.send("Ano atualizado com sucesso")  
+        res.send("Dados atualizados com sucesso"); 
     }
 );
+app.put('/dados/:id',
+(req, res) => {
+const id = req.params.id - 1;
+        const ano = req.body.ano;
+        dados[id] = ano;
+        res.send("Ano atualizado com sucesso") 
+});    
 
 app.delete('/dados/:id',
         (req, res) => {
            const id = req.params.id -1;
            delete dados[id];
            res.send("Mensagem removida com sucesso");
-           const id = req.params.id -1;
-           delete ano[id];
-           res.send("Mensagem removida com sucesso")
+        
         }
     );
+
+    app.delete('/dados/:id',
+    (req, res) => {
+    const id = req.params.id -1;
+    delete ano[id];
+    res.send("Ano removida com sucesso")});
