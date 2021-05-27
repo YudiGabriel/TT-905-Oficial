@@ -11,7 +11,7 @@ app.use(express.json());
  app.listen(process.env.PORT || 3000);
 
  app.get('/', function (req, res){
-        res.send("Hello WorlAafkjsdyd");
+        res.send("Essa é minha página da Atividade 7");
      }
  ); 
 
@@ -20,20 +20,20 @@ app.use(express.json());
      }
  );
 
- const mensagens = [
+ const dados = [
     "Gabriel Yudi", "Marcelo Miranda"
  ];
 
- app.get('/mensagens', function(req, res){
-    // res.send(mensagens);
-     res.send(mensagens.filter(Boolean));
+ app.get('/dados', function(req, res){
+  
+     res.send(dados.filter(Boolean));
     }
 );
 
-app.get('/mensagens/:id', function(req, res)
+app.get('/dados/:id', function(req, res)
     {
         const id = req.params.id - 1;
-        const mensagem = mensagens[id];
+        const mensagem = dados[id];
         
         if(!mensagem){
             res.send('Mensagem não encontrada');
@@ -42,28 +42,28 @@ app.get('/mensagens/:id', function(req, res)
         }
     }
 );
-app.post('/mensagens',
+app.post('/dados',
         function(req, res){
             console.log(req.body.mensagem);
             const mensagem = req.body.mensagem ;
-            mensagens.push(mensagem);
+            dados.push(mensagem);
             res.send("criar uma mensagem");
         }
     );
 
-    app.put('/mensagens/:id',
+    app.put('/dados/:id',
      (req, res) => {
         const id = req.params.id - 1;
         const mensagem = req.body.mensagem;
-        mensagens[id] = mensagem;
+        dados[id] = mensagem;
         res.send("Mensagem atualizada com sucesso")  
     }
 );
 
-app.delete('/mensagens/:id',
+app.delete('/dados/:id',
         (req, res) => {
            const id = req.params.id -1;
-           delete mensagens[id];
+           delete dados[id];
            res.send("Mensagem removida com sucesso")
         }
     );
