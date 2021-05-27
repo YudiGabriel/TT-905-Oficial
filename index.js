@@ -11,7 +11,7 @@ app.use(express.json());
  app.listen(process.env.PORT || 3000);
 
  app.get('/', function (req, res){
-        res.send("Essa é minha página da Atividade 7");
+        res.send("Olá, esta é minha atividade 7");
      }
  ); 
 
@@ -20,73 +20,50 @@ app.use(express.json());
      }
  );
 
- const dados = ["Gabriel Yudi", "Marcelo Miranda"];
- const ano = ["2000", "1996"];
+ const carros = [
+    "Fox", "Up"
+ ];
 
- app.get('/dados', function(req, res){
-  
-     res.send(dados.filter(Boolean))
+ app.get('/carros', function(req, res){
+    // res.send(mensagens);
+     res.send(carros.filter(Boolean));
     }
 );
-app.get('/dados', function(req, res){
-  
-    res.send(ano.filter(Boolean))
-   }
-);
 
-app.get('/dados/:id', function(req, res)
+app.get('/carros/:id', function(req, res)
     {
         const id = req.params.id - 1;
-        const dados = dados[id];
-         const ano =ano[id];
+        const mensagem = carros[id];
         
-        if(!dados){
-            res.send('Dado não encontrado');
+        if(!mensagem){
+            res.send('Carro não encontrado');
         } else {
-            res.send(dado),res.send(ano);
+            res.send(mensagem);
         }
     }
 );
-app.post('/dados',
+app.post('/carros',
         function(req, res){
-            console.log(req.body.dados);
-            const dados = req.body.dados ;
-            dados.push(dados);
-            res.send("criar um dado");
-            console.log(req.body.anos);
-            const ano = req.body.ano ;
-            dados.push(ano);
-            res.send("criou um ano");
+            console.log(req.body.mensagem);
+            const mensagem = req.body.mensagem ;
+            carros.push(mensagem);
+            res.send("Adicionar um carro");
         }
     );
 
-    app.put('/dados/:id',
+    app.put('/carros/:id',
      (req, res) => {
         const id = req.params.id - 1;
-        const dados = req.body.dados;
-        dados[id] = dados;
-        res.send("Dados atualizados com sucesso"); 
+        const mensagem = req.body.mensagem;
+        carros[id] = mensagem;
+        res.send("Carro atualizado com sucesso")  
     }
 );
-app.put('/dados/:id',
-(req, res) => {
-const id = req.params.id - 1;
-        const ano = req.body.ano;
-        dados[id] = ano;
-        res.send("Ano atualizado com sucesso") 
-});    
 
-app.delete('/dados/:id',
+app.delete('/carros/:id',
         (req, res) => {
            const id = req.params.id -1;
-           delete dados[id];
-           res.send("Mensagem removida com sucesso");
-        
+           delete carros[id];
+           res.send("Carro removido com sucesso")
         }
     );
-
-    app.delete('/dados/:id',
-    (req, res) => {
-    const id = req.params.id -1;
-    delete ano[id];
-    res.send("Ano removida com sucesso")});
