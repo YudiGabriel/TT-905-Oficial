@@ -11,7 +11,7 @@ app.use(express.json());
  app.listen(process.env.PORT || 3000);
 
  app.get('/', function (req, res){
-        res.send("Hello WorlAafkjsdyd");
+        res.send("Olá esta é minha atividade 7");
      }
  ); 
 
@@ -20,9 +20,7 @@ app.use(express.json());
      }
  );
 
- const mensagens = [
-    "Gabriel Yudi", "Marcelo Miranda"
- ];
+ const mensagens = ["Gabriel Yudi", "Marcelo Miranda"];
 
  app.get('/mensagens', function(req, res){
     // res.send(mensagens);
