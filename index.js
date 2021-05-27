@@ -20,43 +20,51 @@ app.use(express.json());
      }
  );
 
- const dados = [
-    "Gabriel Yudi", "Marcelo Miranda"
- ];
+ const dados = ["Gabriel Yudi", "Marcelo Miranda"];
+ const ano = ["2000", "1996"];
 
  app.get('/dados', function(req, res){
   
-     res.send(dados.filter(Boolean));
+     res.send(dados.filter(Boolean),
+     res.send(ano.filter(Boolean));
     }
 );
 
 app.get('/dados/:id', function(req, res)
     {
         const id = req.params.id - 1;
-        const mensagem = dados[id];
+        const dados = dados[id], const ano =ano[id];
         
-        if(!mensagem){
-            res.send('Mensagem não encontrada');
+        if(!dados){
+            res.send('Dado não encontrado');
         } else {
-            res.send(mensagem);
+            res.send(dado),res.send(ano);
         }
     }
 );
 app.post('/dados',
         function(req, res){
-            console.log(req.body.mensagem);
-            const mensagem = req.body.mensagem ;
-            dados.push(mensagem);
-            res.send("criar uma mensagem");
+            console.log(req.body.dados);
+            const dados = req.body.dados ;
+            dados.push(dados);
+            res.send("criar um dado");
+            console.log(req.body.anos);
+            const ano = req.body.ano ;
+            dados.push(ano);
+            res.send("criou um ano");
         }
     );
 
     app.put('/dados/:id',
      (req, res) => {
         const id = req.params.id - 1;
-        const mensagem = req.body.mensagem;
-        dados[id] = mensagem;
-        res.send("Mensagem atualizada com sucesso")  
+        const dados = req.body.dados;
+        dados[id] = dados;
+        res.send("Dados atualizados com sucesso");
+        const id = req.params.id - 1;
+        const ano = req.body.ano;
+        dados[id] = ano;
+        res.send("Ano atualizado com sucesso")  
     }
 );
 
@@ -64,6 +72,9 @@ app.delete('/dados/:id',
         (req, res) => {
            const id = req.params.id -1;
            delete dados[id];
+           res.send("Mensagem removida com sucesso");
+           const id = req.params.id -1;
+           delete ano[id];
            res.send("Mensagem removida com sucesso")
         }
     );
