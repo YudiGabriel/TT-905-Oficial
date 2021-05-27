@@ -33,29 +33,29 @@ app.use(express.json());
 app.get('/carros/:id', function(req, res)
     {
         const id = req.params.id - 1;
-        const mensagem = carros[id];
+        const carros = carros[id];
         
-        if(!mensagem){
+        if(!carros){
             res.send('Carro não encontrado');
         } else {
-            res.send(mensagem);
+            res.send(carros);
         }
     }
 );
 app.post('/carros',
         function(req, res){
-            console.log(req.body.mensagem);
-            const mensagem = req.body.mensagem ;
-            carros.push(mensagem);
-            res.send("Adicionar um carro");
+            console.log(req.body.carros);
+            const carros = req.body.carros ;
+            carros.push(carros);
+            res.send("Carro adicionado");
         }
     );
 
     app.put('/carros/:id',
      (req, res) => {
         const id = req.params.id - 1;
-        const mensagem = req.body.mensagem;
-        carros[id] = mensagem;
+        const carros = req.body.carros;
+        carros[id] = carros;
         res.send("Carro atualizado com sucesso")  
     }
 );
