@@ -61,7 +61,7 @@ app.get('/mensagens/:id',
     function(req, res){
         let id = req.params.id - 1;
         let mensagem = mensagens[id];
-
+        console.log("sdsadsa");
         if (!mensagem){
             res.send("Mensagem não encontrada");
         } else {
