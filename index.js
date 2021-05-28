@@ -20,7 +20,7 @@ app.use(express.json());
 //      estilo:"MOBA",
 //      joga: ["Gabriel","Marcelo"]
 //  };
-// let CoD = {
+//  let CoD = {
 //     nome: "Call of Duty",
 //     time: "5 pessoas",
 //     estilo:"FPS",
@@ -34,57 +34,54 @@ app.use(express.json());
 // };
 
 // let jogos = [LoL, CoD, Genshin];
-// 
-const jogo = [
-    {
-        title: "LoL", who:"Gabriel"
-    },
-    {
-        title:"Ablion", who:"Marcelo"
-    }
-]
 
-app.get('/jogos', function(req, res){
-    // res.send(jogo[id].title);
-    console.log(jogo[id].title);
-    // res.send(jogos.filter(Boolean));
+const mensagens = [
+    "Elziele da Rocha", "Lucas Canova dos Santos", 0 
+];
+
+app.get('/mensagens',
+    function(req, res){
+        // res.send(mensagens);
+        res.send(mensagens.filter(Boolean));
     }
 );
 
-// app.get('/jogos/:id', function(req, res)
-//     {
-//         const id = req.params.id - 1;
-//         const jogos = jogos[id];
-        
-//         if(!jogo){
-//             res.send('Mensagem não encontrada');
-//         } else {
-//             res.send(jogo);
-//         }
-//     }
-// );
-// app.post('/jogos',
-//         function(req, res){
-//             console.log(req.body.jogo);
-//             const jogo = req.body.jogo ;
-//             jogos.push(jogo);
-//             res.send("criar uma mensagem");
-//         }
-//     );
+app.get('/mensagens/:id',
+    function(req, res){
+        const id = req.params.id - 1;
+        const mensagem = mensagens[id];
 
-// app.put('/jogos/:id',
-//      (req, res) => {
-//         const id = req.params.id - 1;
-//         const jogo = req.body.jogom;
-//         jogos[id] = jogo;
-//         res.send("Mensagem atualizada com sucesso")  
-//     }
-// );
+        if (!mensagem){
+            res.send("Mensagem não encontrada");
+        } else {
+            res.send(mensagem);
+        }
+    }
+)
 
-// app.delete('/jogos/:id',
-//         (req, res) => {
-//            const id = req.params.id -1;
-//            delete jogos[id];
-//            res.send("Mensagem removida com sucesso")
-//         }
-//     );
+app.post('/mensagens', 
+    (req, res) => {
+        console.log(req.body.mensagem);
+        const mensagem = req.body.mensagem;
+        mensagens.push(mensagem);
+        res.send("criar uma mensagem.")
+    }
+);
+
+app.put('/mensagens/:id',
+    (req, res) => {
+        const id = req.params.id - 1;
+        const mensagem = req.body.mensagem;
+        mensagens[id] = mensagem;        
+        res.send("Mensagem atualizada com sucesso.")
+    }
+)
+
+app.delete('/mensagens/:id', 
+    (req, res) => {
+        const id = req.params.id - 1;
+        delete mensagens[id];
+
+        res.send("Mensagem removida com sucesso");
+    }
+);
