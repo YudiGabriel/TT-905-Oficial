@@ -35,9 +35,12 @@ app.use(express.json());
 
 // let jogos = [LoL, CoD, Genshin];
 
-const mensagens = [
+let mensagens = [
     {
-       nome: "Elziele da Rocha", apelido: "Lucas Canova dos Santos", 
+       nome: "Marcelo Miranda", apelido: "Matheuzinho"
+    },
+    {
+        nome: "Gabriel Yudi", apelido: "Carlton"
     }
      
 ];
@@ -46,13 +49,13 @@ app.get('/mensagens',
     function(req, res){
         // res.send(mensagens);
         res.send(mensagens.filter(Boolean));
-    }
+    } 
 );
 
 app.get('/mensagens/:id',
     function(req, res){
-        const id = req.params.id - 1;
-        const mensagem = mensagens[id];
+        let id = req.params.id - 1;
+        let mensagem = mensagens[id];
 
         if (!mensagem){
             res.send("Mensagem não encontrada");
@@ -65,7 +68,7 @@ app.get('/mensagens/:id',
 app.post('/mensagens', 
     (req, res) => {
         console.log(req.body.mensagem);
-        const mensagem = req.body.mensagem;
+        let mensagem = req.body.mensagem;
         mensagens.push(mensagem);
         res.send("criar uma mensagem.")
     }
@@ -73,8 +76,8 @@ app.post('/mensagens',
 
 app.put('/mensagens/:id',
     (req, res) => {
-        const id = req.params.id - 1;
-        const mensagem = req.body.mensagem;
+        let id = req.params.id - 1;
+        let mensagem = req.body.mensagem;
         mensagens[id] = mensagem;        
         res.send("Mensagem atualizada com sucesso.")
     }
@@ -82,7 +85,7 @@ app.put('/mensagens/:id',
 
 app.delete('/mensagens/:id', 
     (req, res) => {
-        const id = req.params.id - 1;
+        let id = req.params.id - 1;
         delete mensagens[id];
 
         res.send("Mensagem removida com sucesso");
