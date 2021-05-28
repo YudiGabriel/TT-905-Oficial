@@ -36,13 +36,16 @@ app.use(express.json());
 // let jogos = [LoL, CoD, Genshin];
 
 const mensagens = [
-    "Elziele da Rocha", "Lucas Canova dos Santos", 0 
+    {
+       nome: "Elziele da Rocha", apelido: "Lucas Canova dos Santos", 
+    }
+     
 ];
 
 app.get('/mensagens',
     function(req, res){
         // res.send(mensagens);
-        res.send(mensagens.filter(Boolean));
+        res.send(mensagens.nome.filter(Boolean));
     }
 );
 
