@@ -48,13 +48,13 @@ let mensagens = [
 app.get('/mensagens',
     function(req, res){
         // res.send(mensagens);
-        res.send(mensagens.apelido.filter(Boolean));
+        res.send(mensagens.filter(Boolean));
     } 
 );
-// app.get('/mensagens/apelido',
-//     function(req,res){
-//         res.send(mensagens.apelido);
-//     })
+app.get('/mensagens/apelido',
+    function(req,res){
+        res.send(mensagens.apelido);
+    })
 
 app.get('/mensagens/:id',
     function(req, res){
