@@ -69,14 +69,14 @@ app.get('/mensagens/:id',
     }
 )
 
-// app.post('/mensagens', 
-//     (req, res) => {
-//         console.log(req.body.mensagem);
-//         let mensagem = req.body.mensagem;
-//         mensagens.push(mensagem);
-//         res.send("criar uma mensagem.")
-//     }
-// );
+app.post('/mensagens', 
+    (req, res) => {
+        console.log(req.body.mensagem);
+        let mensagem = req.body.mensagem;
+        mensagens.push(mensagem);
+        res.send("criar uma mensagem.")
+    }
+);
 
 app.put('/mensagens/:id',
     (req, res) => {
