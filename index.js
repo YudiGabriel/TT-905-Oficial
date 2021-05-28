@@ -51,19 +51,23 @@ app.get('/mensagens',
         res.send(mensagens.filter(Boolean));
     } 
 );
+app.get('/mensagens/apelido',
+    function(req,res){
+        res.send(mensagens.apelido);
+    })
 
-app.get('/mensagens/:id',
-    function(req, res){
-        let id = req.params.id - 1;
-        let mensagem = mensagens[id];
+// app.get('/mensagens/:id',
+//     function(req, res){
+//         let id = req.params.id - 1;
+//         let mensagem = mensagens[id];
 
-        if (!mensagem){
-            res.send("Mensagem não encontrada");
-        } else {
-            res.send(mensagem);
-        }
-    }
-)
+//         if (!mensagem){
+//             res.send("Mensagem não encontrada");
+//         } else {
+//             res.send(mensagem);
+//         }
+//     }
+// )
 
 app.post('/mensagens', 
     (req, res) => {
