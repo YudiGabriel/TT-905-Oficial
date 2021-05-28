@@ -58,6 +58,12 @@ app.get('/mensagens/:id/apelido/',
         let id = req.params.id - 1;
         res.send(mensagens[id].apelido);
     });
+app.get('/mensagens/:id/nome/',
+    function(req,res){
+        console.log("Oioio");
+        let id = req.params.id - 1;
+        res.send(mensagens[id].nome);
+    });
 
 app.get('/mensagens/:id',
     function(req, res){
