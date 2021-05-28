@@ -53,7 +53,7 @@ app.get('/mensagens',
 );
 app.get('/mensagens/apelido',
     function(req,res){
-        log.console("Oioio");
+        console.log("Oioio");
         res.send(mensagens.apelido);
     })
 
