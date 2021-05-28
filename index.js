@@ -52,10 +52,11 @@ app.get('/mensagens',
         res.send(mensagens.filter(Boolean));
     } 
 );
-app.get('/mensagens/apelido',
+app.get('/mensagens/:id/apelido/',
     function(req,res){
         console.log("Oioio");
-        res.send(mensagens[0].apelido);
+        let id = req.params.id - 1;
+        res.send(mensagens[id].apelido);
     });
 
 app.get('/mensagens/:id',
