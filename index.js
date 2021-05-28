@@ -55,7 +55,7 @@ app.get('/mensagens/apelido',
     function(req,res){
         console.log("Oioio");
         res.send(mensagens.apelido);
-    })
+    });
 
 app.get('/mensagens/:id',
     function(req, res){
