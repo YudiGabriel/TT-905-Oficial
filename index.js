@@ -45,7 +45,7 @@ const mensagens = [
 app.get('/mensagens',
     function(req, res){
         // res.send(mensagens);
-        res.send(mensagens.nome.filter(Boolean));
+        res.send(mensagens.filter(Boolean));
     }
 );
 
