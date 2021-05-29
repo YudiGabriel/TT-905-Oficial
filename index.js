@@ -58,13 +58,6 @@ app.get('/repsipa/:id/:nn/',
         let id = req.params.id - 1;
         res.send(mensagens[id][req.params.nn]);
     });
-// app.get('/mensagens/:id/nome/',
-//     function(req,res){
-//         console.log("Oioio");
-//         let id = req.params.id - 1;
-//         res.send(mensagens[id].nome);
-//     });
-
 app.get('/repsipa/:id',
     function(req, res){
         console.log("sdsadsa");
