@@ -38,34 +38,34 @@ app.use(express.json());
 
 let mensagens = [
     {
-       nome: "Marcelo Miranda", apelido: "Matheuzinho"
+       nome: "Marcelo Miranda", apelido: "Matheuzinho", data:"16/06/1996", cidade:"Sumaré", jogo:"Albion Online", signo:"Gêmeos", time:"Palmeiras", escola: "Sumaré School"
     },
     {
-        nome: "Gabriel Yudi", apelido: "Carlton"
+        nome: "Gabriel Yudi", apelido: "Carlton", data:"06/10/2000", cidade:"São Paulo", jogo: "Starcraft 2", signo:"Libra", time:"Corinthians", escola:"Objetivo Vergueiro"
     }
      
 ];
 
-app.get('/mensagens',
+app.get('/repsipa',
     function(req, res){
         // res.send(mensagens);
         res.send(mensagens.filter(Boolean));
     } 
 );
-app.get('/mensagens/:id/apelido/',
+app.get('/repsipa/:id/:nn/',
     function(req,res){
         console.log("Oioio");
         let id = req.params.id - 1;
-        res.send(mensagens[id].apelido);
+        res.send(mensagens[id][req.params.nn]);
     });
-app.get('/mensagens/:id/nome/',
-    function(req,res){
-        console.log("Oioio");
-        let id = req.params.id - 1;
-        res.send(mensagens[id].nome);
-    });
+// app.get('/mensagens/:id/nome/',
+//     function(req,res){
+//         console.log("Oioio");
+//         let id = req.params.id - 1;
+//         res.send(mensagens[id].nome);
+//     });
 
-app.get('/mensagens/:id',
+app.get('/repsipa/:id',
     function(req, res){
         console.log("sdsadsa");
         let id = req.params.id - 1;
@@ -79,7 +79,7 @@ app.get('/mensagens/:id',
     }
 )
 
-app.post('/mensagens', 
+app.post('/repsipa', 
     (req, res) => {
         console.log(req.body.mensagem);
         let mensagem = req.body.mensagem;
@@ -88,7 +88,7 @@ app.post('/mensagens',
     }
 );
 
-app.put('/mensagens/:id',
+app.put('/repsipa/:id',
     (req, res) => {
         let id = req.params.id - 1;
         let mensagem = req.body.mensagem;
@@ -97,7 +97,7 @@ app.put('/mensagens/:id',
     }
 )
 
-app.delete('/mensagens/:id', 
+app.delete('/repsipa/:id', 
     (req, res) => {
         let id = req.params.id - 1;
         delete mensagens[id];
