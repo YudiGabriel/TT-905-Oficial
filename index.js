@@ -38,7 +38,7 @@ app.use(express.json());
 
 let mensagens = [
     {
-       nome: "Marcelo Miranda", apelido: "Matheuzinho", data:"16/06/1996", cidade:"Sumaré", jogo:"Albion Online", signo:"Gêmeos", time:"Palmeiras", escola: "Sumaré School"
+       nome: "Marcelo Miranda", apelido: "Matheuzinho", data:"16/06/1996", cidade:"Sumaré", jogo:"Albion Online", signo:"Gêmeos", time:"Palmeiras", escola: "Meson"
     },
     {
         nome: "Gabriel Yudi", apelido: "Carlton", data:"06/10/2000", cidade:"São Paulo", jogo: "Starcraft 2", signo:"Libra", time:"Corinthians", escola:"Objetivo Vergueiro"
