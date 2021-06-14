@@ -76,7 +76,7 @@ app.get('/repsipa/:id',
 app.post('/repsipa', 
     (req, res) => {
         console.log(req.body.mensagem);
-        let mensagem = req.body.mensagem;
+        let mensagem = req.body;
         mensagens.push(mensagem);
         res.send("criar uma mensagem.")
     }
@@ -85,7 +85,7 @@ app.post('/repsipa',
 app.put('/repsipa/:id',
     (req, res) => {
         let id = req.params.id - 1;
-        let mensagem = req.body.mensagem;
+        let mensagem = req.body;
         mensagens[id] = mensagem;        
         res.send("Mensagem atualizada com sucesso.")
     }
