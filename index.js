@@ -158,7 +158,7 @@ app.put('/database/:id',
         let id = req.params.id;
         let mensagem = req.body;
         delete mensagem["_id"];
-        conts num_mensagens = await mensagens.countDocuments({_id : mongodb.ObjectID(id)});    
+        const num_mensagens = await mensagens.countDocuments({_id : mongodb.ObjectID(id)});    
         if (num_mensagens !==1){
             res.send('Ocorreu um erro devido ao numero de mensagens');
             return;
