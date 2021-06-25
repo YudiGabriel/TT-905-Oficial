@@ -110,7 +110,7 @@ app.delete('/repsipa/:id',
 // });
 
 const mongodb = require('mongodb')
-const connectionString = "mongodb+srv://admin:zumrtiVASTGunLPY@cluster0.ya6mv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const connectionString = "mongodb+srv://admin:admin@cluster0.ya6mv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const options = { 
     useNewUrlParser: true,
     useUnifiedTopology: true
