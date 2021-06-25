@@ -170,5 +170,15 @@ app.put('/database/:id',
         res.send("Mensagem atualizada com sucesso.")
     }   
 );
+app.delete('/database/:id', 
+    async (req, res) => {
+        let id = req.params.id;
+        await mensagens.deleteOne(
+            {_id : mongodb.ObjectID(id)}
+        );
+
+        res.send("Mensagem removida com sucesso");
+    }
+);
 
 })();
