@@ -99,3 +99,30 @@ app.delete('/repsipa/:id',
         res.send("Mensagem removida com sucesso");
     }
 );
+// zumrtiVASTGunLPY   admin
+// const { MongoClient } = require('mongodb');
+// const uri = "mongodb+srv://admin:admin@cluster0.ya6mv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+const mongodb = require('mongodb')
+const connectionString = "mongodb+srv://admin:zumrtiVASTGunLPY@cluster0.ya6mv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const options = { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+};
+(async()=>{
+    const client = await mongodb.MongoClient.connect(connectionString, options);
+    const db = client.db('myFirstDataBase');
+    const mensagens = db.collection('mensagens');
+    console.log(await mensagens.find({}).toArray());
+
+    app.get('/database', 
+        async function(req, res){
+            res.send(await mensagens.find({}).toArray()); 
+        })
+})();
