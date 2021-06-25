@@ -110,6 +110,8 @@ app.delete('/repsipa/:id',
 // });
 
 const mongodb = require('mongodb')
+const password =    process.env.password;
+console.log(password);
 const connectionString = "mongodb+srv://admin:admin@cluster0.ya6mv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const options = { 
     useNewUrlParser: true,
@@ -150,4 +152,23 @@ app.post('/database',
         res.send("criar uma mensagem.")
     }
 );
+
+app.put('/database/:id',
+    async (req, res) => {
+        let id = req.params.id;
+        let mensagem = req.body;
+        delete mensagem["_id"];
+        conts num_mensagens = await mensagens.countDocuments({_id : mongodb.ObjectID(id)});    
+        if (num_mensagens !==1){
+            res.send('Ocorreu um erro devido ao numero de mensagens');
+            return;
+        }
+        await mensagens.updateOne(
+            {_id : mongodb.ObjectID(id)},
+            {$set : mensagem}
+        ); 
+        res.send("Mensagem atualizada com sucesso.")
+    }   
+);
+
 })();
