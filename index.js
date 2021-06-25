@@ -124,5 +124,30 @@ const options = {
     app.get('/database', 
         async function(req, res){
             res.send(await mensagens.find({}).toArray()); 
-        })
+        }
+);
+
+        app.get('/database/:id',
+    async function(req, res){
+        let id = req.params.id;
+        let mensagem = await mensagens.findOne(
+            {_id : mongodb.ObjectID(id)}
+        );
+        
+        if (!mensagem){
+            res.send("Mensagem não encontrada");
+        } else {
+            res.send(mensagem);
+        }
+    }
+);
+app.post('/database', 
+    async (req, res) => {
+        console.log(req.body);
+        let mensagem = req.body;
+        delete mensagem["_id"];
+        mensagens.insertOne(mensagem);
+        res.send("criar uma mensagem.")
+    }
+);
 })();
