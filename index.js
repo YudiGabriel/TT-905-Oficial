@@ -99,9 +99,8 @@ app.delete('/repsipa/:id',
         res.send("Mensagem removida com sucesso");
     }
 );
-// zumrtiVASTGunLPY   admin
 // const { MongoClient } = require('mongodb');
-// const uri = "mongodb+srv://admin:admin@cluster0.ya6mv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://Aula12:<password>@cluster0.jv6lq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 // client.connect(err => {
 //   const collection = client.db("test").collection("devices");
@@ -112,7 +111,7 @@ app.delete('/repsipa/:id',
 const mongodb = require('mongodb')
 const password =    process.env.password;
 console.log(password);
-const connectionString = "mongodb+srv://admin:admin@cluster0.ya6mv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const connectionString = "mongodb+srv://Aula12:zuu25R3bfzC6Myt@cluster0.jv6lq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const options = { 
     useNewUrlParser: true,
     useUnifiedTopology: true
